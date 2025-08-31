@@ -593,17 +593,57 @@ body {
     width: 280px;
     height: 280px;
     object-fit: cover;
-    object-position: center 40%;
-    border-radius: 50%;
-    border: 4px solid var(--border-light);
-    box-shadow: var(--shadow-xl);
+    object-position: center 15%; /* Positioned to show full forehead and complete picture */
+    border-radius: 20px;
+    border: 6px solid var(--accent-primary);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.1),
+        0 0 0 1px var(--border-light),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+    clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
+}
+
+.about-image .profile-image::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary), var(--accent-primary));
+    border-radius: 28px;
+    z-index: -1;
+    opacity: 0.8;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.about-image .profile-image::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    background: var(--bg-primary);
+    border-radius: 24px;
+    z-index: -1;
+}
+
 .about-image .profile-image:hover {
-    transform: scale(1.05);
-    box-shadow: var(--shadow-hover);
-    border-color: var(--accent-primary);
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 
+        0 30px 60px rgba(0, 0, 0, 0.15),
+        0 0 0 2px var(--accent-primary),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+    border-color: var(--accent-secondary);
+}
+
+.about-image .profile-image:hover::before {
+    opacity: 1;
+    transform: scale(1.1);
 }
 
 .about-text p {
