@@ -867,6 +867,33 @@ body[data-theme="dark"] {
     font-weight: 600;
 }
 
+.fitexplorer-link {
+    color: var(--accent-primary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.fitexplorer-link:hover {
+    color: var(--accent-secondary);
+    text-decoration: none;
+}
+
+.fitexplorer-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+    transition: width 0.3s ease;
+}
+
+.fitexplorer-link:hover::after {
+    width: 100%;
+}
+
 .skills h3 {
     margin: 2.5rem 0 1.5rem;
     color: var(--text-primary);
@@ -1161,13 +1188,21 @@ body[data-theme="dark"] {
 }
 
 .project-image {
-    height: 220px;
-    background: var(--gradient-primary);
+    height: 300px;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     overflow: hidden;
+}
+
+.project-card:first-child .project-image {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+}
+
+.project-card:nth-child(2) .project-image {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #667eea 100%);
 }
 
 .project-image::before {
@@ -1195,6 +1230,21 @@ body[data-theme="dark"] {
 
 .project-card:hover .project-image i {
     transform: scale(1.1) rotate(5deg);
+}
+
+.project-logo {
+    max-width: 280px;
+    max-height: 280px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 15px;
+}
+
+.project-card:hover .project-logo {
+    transform: scale(1.1);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
 }
 
 .project-content {
