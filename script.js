@@ -18,8 +18,10 @@ const themeToggle = document.getElementById('theme-toggle');
 const body = document.body;
 const moonIcon = themeToggle.querySelector('i');
 
-// Check for saved theme preference or default to light mode
-const currentTheme = localStorage.getItem('theme') || 'light';
+// Check for saved theme preference or use current HTML attribute or default to dark mode
+const savedTheme = localStorage.getItem('theme');
+const htmlTheme = body.getAttribute('data-theme');
+const currentTheme = savedTheme || htmlTheme || 'dark';
 body.setAttribute('data-theme', currentTheme);
 updateThemeIcon(currentTheme);
 
