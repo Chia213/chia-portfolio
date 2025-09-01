@@ -20,18 +20,28 @@ const moonIcon = themeToggle.querySelector('i');
 
 // Check for saved theme preference or use current HTML attribute or default to dark mode
 const savedTheme = localStorage.getItem('theme');
-const htmlTheme = body.getAttribute('data-theme');
+const htmlTheme = document.documentElement.getAttribute('data-theme');
 const currentTheme = savedTheme || htmlTheme || 'dark';
 body.setAttribute('data-theme', currentTheme);
+document.documentElement.setAttribute('data-theme', currentTheme);
 updateThemeIcon(currentTheme);
+
+// Initialize navbar with correct theme colors
+setTimeout(() => {
+    updateNavbarOnScroll();
+}, 100);
 
 themeToggle.addEventListener('click', () => {
     const currentTheme = body.getAttribute('data-theme');
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
     
     body.setAttribute('data-theme', newTheme);
+    document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
     updateThemeIcon(newTheme);
+    
+    // Update navbar immediately after theme change
+    updateNavbarOnScroll();
 });
 
 function updateThemeIcon(theme) {
@@ -40,7 +50,7 @@ function updateThemeIcon(theme) {
         moonIcon.style.color = '#fbbf24';
     } else {
         moonIcon.className = 'fas fa-moon';
-        moonIcon.style.color = '';
+        moonIcon.style.color = '#1f2937';
     }
 }
 
@@ -59,20 +69,36 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Navbar background change on scroll
-window.addEventListener('scroll', () => {
+function updateNavbarOnScroll() {
     const navbar = document.querySelector('.navbar');
+    const currentTheme = body.getAttribute('data-theme');
+    
     if (window.scrollY > 100) {
-        navbar.style.background = body.getAttribute('data-theme') === 'dark' 
-            ? 'rgba(15, 23, 42, 0.98)' 
-            : 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.15)';
+        if (currentTheme === 'dark') {
+            navbar.style.background = 'rgba(15, 23, 42, 0.98)';
+            navbar.style.borderBottom = '1px solid rgba(71, 85, 105, 0.4)';
+        } else {
+            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            navbar.style.borderBottom = '1px solid rgba(229, 229, 229, 0.9)';
+        }
+        navbar.style.boxShadow = currentTheme === 'dark' 
+            ? '0 2px 20px rgba(0, 0, 0, 0.3)' 
+            : '0 2px 20px rgba(0, 0, 0, 0.15)';
     } else {
-        navbar.style.background = body.getAttribute('data-theme') === 'dark' 
-            ? 'rgba(15, 23, 42, 0.95)' 
-            : 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+        if (currentTheme === 'dark') {
+            navbar.style.background = 'rgba(15, 23, 42, 0.95)';
+            navbar.style.borderBottom = '1px solid rgba(71, 85, 105, 0.3)';
+        } else {
+            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            navbar.style.borderBottom = '1px solid rgba(229, 229, 229, 0.8)';
+        }
+        navbar.style.boxShadow = currentTheme === 'dark' 
+            ? '0 2px 20px rgba(0, 0, 0, 0.2)' 
+            : '0 2px 20px rgba(0, 0, 0, 0.1)';
     }
-});
+}
+
+window.addEventListener('scroll', updateNavbarOnScroll);
 
 // Project Filtering
 const filterButtons = document.querySelectorAll('.filter-btn');
@@ -107,21 +133,21 @@ filterButtons.forEach(button => {
     });
 });
 
-// Form submission handling
-const contactForm = document.querySelector('.contact-form form');
+// Professional Contact Form submission handling
+const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
         // Get form data
-        const formData = new FormData(this);
-        const name = this.querySelector('input[type="text"]').value;
-        const email = this.querySelector('input[type="email"]').value;
-        const message = this.querySelector('textarea').value;
+        const firstName = document.getElementById('firstName').value.trim();
+        const lastName = document.getElementById('lastName').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
         
         // Basic validation
-        if (!name || !email || !message) {
-            showNotification('Please fill in all fields', 'error');
+        if (!firstName || !lastName || !email || !message) {
+            showNotification('Please fill in all required fields', 'error');
             return;
         }
         
@@ -132,9 +158,34 @@ if (contactForm) {
             return;
         }
         
-        // Simulate form submission (replace with actual form handling)
-        showNotification('Thank you for your message! I\'ll get back to you soon.', 'success');
-        this.reset();
+        // Create email content
+        const fullName = `${firstName} ${lastName}`;
+        
+        const emailBody = `Hi Chia,
+
+My name is ${fullName} and I found your portfolio. I'd like to get in touch with you.
+
+Email: ${email}
+
+Message:
+${message}
+
+Best regards,
+${fullName}`;
+        
+        // Create mailto link
+        const mailtoLink = `mailto:chiaranchber@gmail.com?subject=Portfolio Contact from ${fullName}&body=${encodeURIComponent(emailBody)}`;
+        
+        // Open email client
+        window.location.href = mailtoLink;
+        
+        // Show success message
+        showNotification('Opening your email client... Thank you for reaching out!', 'success');
+        
+        // Reset form after a short delay
+        setTimeout(() => {
+            this.reset();
+        }, 1000);
     });
 }
 
@@ -317,15 +368,178 @@ window.addEventListener('load', () => {
     document.body.classList.add('loaded');
 });
 
-// Smooth reveal for project filters
-const projectFilters = document.querySelector('.project-filters');
-if (projectFilters) {
-    projectFilters.style.opacity = '0';
-    projectFilters.style.transform = 'translateY(20px)';
+// Project Carousel Functionality
+function initializeProjectCarousel() {
+    const track = document.getElementById('carouselTrack');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const dotsContainer = document.getElementById('carouselDots');
     
-    setTimeout(() => {
-        projectFilters.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        projectFilters.style.opacity = '1';
-        projectFilters.style.transform = 'translateY(0)';
-    }, 800);
+    if (!track) return;
+    
+    const cards = track.querySelectorAll('.project-card');
+    const totalCards = cards.length;
+    let currentIndex = 0;
+    
+    // Create dots
+    for (let i = 0; i < totalCards; i++) {
+        const dot = document.createElement('span');
+        dot.classList.add('carousel-dot');
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(i));
+        dotsContainer.appendChild(dot);
+    }
+    
+    const dots = dotsContainer.querySelectorAll('.carousel-dot');
+    
+    function updateCarousel() {
+        const translateX = -currentIndex * 100;
+        track.style.transform = `translateX(${translateX}%)`;
+        
+        // Update dots
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+        });
+        
+        // Update button states
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex === totalCards - 1;
+    }
+    
+    function goToSlide(index) {
+        currentIndex = Math.max(0, Math.min(index, totalCards - 1));
+        updateCarousel();
+    }
+    
+    function nextSlide() {
+        if (currentIndex < totalCards - 1) {
+            currentIndex++;
+            updateCarousel();
+        }
+    }
+    
+    function prevSlide() {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateCarousel();
+        }
+    }
+    
+    // Event listeners
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') prevSlide();
+        if (e.key === 'ArrowRight') nextSlide();
+    });
+    
+    // Initialize
+    updateCarousel();
+}
+
+// Initialize carousel when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    initializeProjectCarousel();
+    initializeScrollAnimations();
+    initializeParallaxEffects();
+    initializeAnimatedCounters();
+    initializeTypewriterEffect();
+});
+
+// Smooth page load animation
+window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+});
+
+// Scroll-triggered animations using Intersection Observer
+function initializeScrollAnimations() {
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+    
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    animatedElements.forEach(el => observer.observe(el));
+}
+
+// Parallax effects for hero section
+function initializeParallaxEffects() {
+    const hero = document.querySelector('.hero');
+    const heroContent = document.querySelector('.hero-content');
+    
+    if (!hero || !heroContent) return;
+    
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const parallaxSpeed = 0.5;
+        
+        heroContent.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
+    });
+}
+
+// Animated counters for stats
+function initializeAnimatedCounters() {
+    const counters = document.querySelectorAll('.stat-item h3');
+    
+    const animateCounter = (counter) => {
+        const target = parseInt(counter.textContent.replace(/\D/g, ''));
+        const suffix = counter.textContent.replace(/\d/g, '');
+        let current = 0;
+        const increment = target / 50;
+        const duration = 2000;
+        const stepTime = duration / 50;
+        
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+            counter.textContent = Math.floor(current) + suffix;
+        }, stepTime);
+    };
+    
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounter(entry.target);
+                counterObserver.unobserve(entry.target);
+            }
+        });
+    });
+    
+    counters.forEach(counter => counterObserver.observe(counter));
+}
+
+// Typewriter effect for hero text
+function initializeTypewriterEffect() {
+    const typewriterText = document.querySelector('.typewriter-text');
+    if (!typewriterText) return;
+    
+    const text = typewriterText.textContent;
+    typewriterText.textContent = '';
+    typewriterText.style.opacity = '1';
+    
+    let i = 0;
+    const typeWriter = () => {
+        if (i < text.length) {
+            typewriterText.textContent += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, 100);
+        }
+    };
+    
+    setTimeout(typeWriter, 1000);
 }

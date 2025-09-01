@@ -44,17 +44,50 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <!-- Professional Background Pattern -->
+        <div class="hero-background">
+            <div class="bg-pattern">
+                <div class="pattern-grid"></div>
+                <div class="pattern-dots"></div>
+                <div class="gradient-orb gradient-orb-1"></div>
+                <div class="gradient-orb gradient-orb-2"></div>
+                <div class="gradient-orb gradient-orb-3"></div>
+            </div>
+        </div>
+        
         <div class="hero-container">
             <div class="hero-content">
-                <h1 class="hero-title">
+                <div class="hero-badge animate-on-scroll fade-in-left">
+                    <span class="status-indicator"></span>
+                    <span>Available for opportunities</span>
+                </div>
+                
+                <h1 class="hero-title animate-on-scroll fade-in-left">
                     Hello! I'm
                 </h1>
-                <h1 class="hero-name">Chia Ranchber</h1>
-                <p class="hero-subtitle">AI Developer & Fullstack Engineer | Python & Java</p>
-                <p class="hero-description">
+                <h1 class="hero-name animate-on-scroll scale-in">Chia Ranchber</h1>
+                <p class="hero-subtitle animate-on-scroll fade-in-right typewriter-text">AI Developer & Fullstack Engineer | Python & Java</p>
+                <p class="hero-description animate-on-scroll">
                     I combine AI, Python, Java, and web development to build practical, intelligent tools that simplify complex problems.
                 </p>
-                <div class="hero-social">
+                
+                <!-- Key Stats -->
+                <div class="hero-stats animate-on-scroll fade-in-up">
+                    <div class="stat">
+                        <span class="stat-number">12+</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">1</span>
+                        <span class="stat-label">Live App</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label">Tech Stack</span>
+                    </div>
+                </div>
+                
+                <div class="hero-social animate-on-scroll">
                     <a href="https://github.com/Chia213" target="_blank" class="social-icon" title="GitHub">
                         <i class="fab fa-github"></i>
                     </a>
@@ -65,9 +98,39 @@
                         <i class="fas fa-file-alt"></i>
                     </a>
                 </div>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                
+                <div class="hero-buttons animate-on-scroll">
+                    <a href="#projects" class="btn btn-primary pulse-on-hover enhanced-hover">
+                        <i class="fas fa-rocket"></i>
+                        View My Work
+                    </a>
+                    <a href="#contact" class="btn btn-secondary enhanced-hover">
+                        <i class="fas fa-envelope"></i>
+                        Get In Touch
+                    </a>
                 </div>
+                
+                <!-- Featured Project Preview -->
+                <div class="hero-project-preview animate-on-scroll fade-in-up">
+                    <div class="preview-header">
+                        <span class="preview-label">Featured Project</span>
+                    </div>
+                    <a href="#projects" class="preview-card">
+                        <div class="preview-image">
+                            <img src="fitexplorer-logo.png" alt="FitExplorer">
+                        </div>
+                        <div class="preview-content">
+                            <h3>FitExplorer</h3>
+                            <p>Full-stack fitness platform with AI insights</p>
+                            <div class="preview-tech">
+                                <span>JavaScript</span>
+                                <span>Full-Stack</span>
+                                <span>Live</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
                 <div class="scroll-indicator">
                     <div class="scroll-arrow"></div>
                     <span>Scroll to explore</span>
@@ -79,9 +142,9 @@
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
+            <h2 class="section-title animate-on-scroll">About Me</h2>
             <div class="about-content">
-                <div class="about-text">
+                <div class="about-text animate-on-scroll fade-in-left">
                     <h3 class="about-subtitle">Building Technology That Matters</h3>
                     <p>
                         Hey there! I'm a passionate Python developer currently completing my final course in <strong>Machine Learning and Deep Learning</strong> at Nackademin's AI Development program. What drives me is the potential of technology to solve real problems while maintaining ethical responsibility and sustainability.
@@ -96,15 +159,15 @@
                         When I'm not coding, I'm gaming, training at the gym, or exploring new cultures. I believe the best developers stay curious about the world around them - it all feeds back into creating better technology.
                     </p>
                 </div>
-                <div class="about-image">
+                <div class="about-image animate-on-scroll scale-in">
                     <img src="bild.jpg" alt="Chia Ranchber - Professional Developer" class="profile-image">
                 </div>
-                <div class="about-stats">
-                    <div class="stat-item">
+                <div class="about-stats animate-on-scroll fade-in-right">
+                    <div class="stat-item enhanced-hover">
                         <h3>12+</h3>
                         <p>Projects Built</p>
                     </div>
-                    <div class="stat-item">
+                    <div class="stat-item enhanced-hover">
                         <h3>1</h3>
                         <p>Live Application</p>
                     </div>
@@ -116,77 +179,230 @@
     <!-- Skills Section -->
     <section id="skills" class="skills">
         <div class="container">
-            <h2 class="section-title">Skills & Technologies</h2>
-            <div class="skills-description">
+            <h2 class="section-title animate-on-scroll">Skills & Technologies</h2>
+            <div class="skills-description animate-on-scroll">
                 <p>Here's what I've been working with lately. These are the tools and technologies I use to build full-stack applications, automate workflows, and explore AI.</p>
+                <div class="skills-legend">
+                    <div class="legend-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Skills I've mastered and use regularly</span>
+                    </div>
+                    <div class="legend-item">
+                        <i class="fas fa-book-open"></i>
+                        <span>Currently learning and expanding my knowledge</span>
+                    </div>
+                </div>
             </div>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Programming Languages</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Python <i class="fas fa-check"></i></span>
-                        <span class="skill-tag">JavaScript <i class="fas fa-check"></i></span>
-                        <span class="skill-tag">HTML & CSS <i class="fas fa-check"></i></span>
-                        <span class="skill-tag">Tailwind CSS <i class="fas fa-check"></i></span>
-                        <span class="skill-tag">Pygame <i class="fas fa-check"></i></span>
-                        <span class="skill-tag">Web Scraping <i class="fas fa-check"></i></span>
-                        <span class="skill-tag">Bash Scripting <i class="fas fa-check"></i></span>
+            <div class="skills-cards-grid animate-on-scroll">
+                <div class="skill-card">
+                    <div class="skill-card-header">
+                        <h3>Programming Languages</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Python</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>HTML & CSS</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Tailwind CSS</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Pygame</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Web Scraping</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Bash Scripting</span>
+                        </div>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h3>Database Technology</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">SQL Databases <i class="fas fa-check"></i></span>
-                        <span class="skill-tag">Database Design + CRUD <i class="fas fa-check"></i></span>
-                        <span class="skill-tag">ERD Diagrams <i class="fas fa-check"></i></span>
-                        <span class="skill-tag">Raw SQL <i class="fas fa-check"></i></span>
-                        <span class="skill-tag">Database Normalization <i class="fas fa-check"></i></span>
-                        <span class="skill-tag">Indexing & Transactions <i class="fas fa-check"></i></span>
+
+                <div class="skill-card">
+                    <div class="skill-card-header">
+                        <h3>Database Technology</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>SQL Databases</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Database Design + CRUD</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>ERD Diagrams</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Raw SQL</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Database Normalization</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Indexing & Transactions</span>
+                        </div>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h3>Development Tools & DevOps</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">VS Code <i class="fas fa-check"></i></span>
-                        <span class="skill-tag">Git <i class="fas fa-check"></i></span>
-                        <span class="skill-tag">Docker <i class="fas fa-check"></i></span>
-                        <span class="skill-tag">WSL + AWS + SSH <i class="fas fa-check"></i></span>
-                        <span class="skill-tag">RDS & Cron Jobs <i class="fas fa-check"></i></span>
-                        <span class="skill-tag">Web Servers <i class="fas fa-check"></i></span>
-                        <span class="skill-tag">Venv + Modules <i class="fas fa-check"></i></span>
+
+                <div class="skill-card">
+                    <div class="skill-card-header">
+                        <h3>Development Tools & DevOps</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>VS Code</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Git</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Docker</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>WSL + AWS + SSH</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>RDS & Cron Jobs</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Web Servers</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Venv + Modules</span>
+                        </div>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h3>Frameworks & Libraries</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">React <i class="fas fa-check"></i></span>
-                        <span class="skill-tag">Node.js <i class="fas fa-check"></i></span>
-                        <span class="skill-tag">FastAPI <i class="fas fa-check"></i></span>
-                        <span class="skill-tag">Flask <i class="fas fa-check"></i></span>
-                        <span class="skill-tag">Django <i class="fas fa-check"></i></span>
-                        <span class="skill-tag">SQLAlchemy <i class="fas fa-check"></i></span>
-                        <span class="skill-tag">NumPy & Pandas <i class="fas fa-check"></i></span>
-                        <span class="skill-tag">Streamlit <i class="fas fa-check"></i></span>
-                        <span class="skill-tag">Async Programming <i class="fas fa-check"></i></span>
+
+                <div class="skill-card">
+                    <div class="skill-card-header">
+                        <h3>Frameworks & Libraries</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>React</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Node.js</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>FastAPI</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Flask</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Django</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>SQLAlchemy</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>NumPy & Pandas</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Streamlit</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Async Programming</span>
+                        </div>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h3>AI & Machine Learning</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">OpenAI <i class="fas fa-check"></i></span>
-                        <span class="skill-tag">PyTorch <i class="fas fa-check"></i></span>
-                        <span class="skill-tag">Discord API <i class="fas fa-check"></i></span>
-                        <span class="skill-tag">Generative AI (RAG / LLMs) <i class="fas fa-check"></i></span>
-                        <span class="skill-tag">Hugging Face <i class="fas fa-check"></i></span>
-                        <span class="skill-tag learning">TensorFlow <i class="fas fa-book-open"></i></span>
-                        <span class="skill-tag learning">Neural Networks <i class="fas fa-book-open"></i></span>
-                        <span class="skill-tag learning">Deep Learning <i class="fas fa-book-open"></i></span>
-                        <span class="skill-tag learning">Transfer Learning <i class="fas fa-book-open"></i></span>
-                        <span class="skill-tag learning">Computer Vision <i class="fas fa-book-open"></i></span>
-                        <span class="skill-tag learning">Natural Language Processing <i class="fas fa-book-open"></i></span>
-                        <span class="skill-tag learning">MLOps <i class="fas fa-book-open"></i></span>
-                        <span class="skill-tag learning">Data Preprocessing <i class="fas fa-book-open"></i></span>
-                        <span class="skill-tag learning">Model Evaluation <i class="fas fa-book-open"></i></span>
+
+                <div class="skill-card">
+                    <div class="skill-card-header">
+                        <h3>AI & Machine Learning</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>OpenAI</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>PyTorch</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Discord API</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Generative AI (RAG / LLMs)</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Hugging Face</span>
+                        </div>
+                        <div class="skill-item learning">
+                            <i class="fas fa-book-open"></i>
+                            <span>TensorFlow</span>
+                        </div>
+                        <div class="skill-item learning">
+                            <i class="fas fa-book-open"></i>
+                            <span>Neural Networks</span>
+                        </div>
+                        <div class="skill-item learning">
+                            <i class="fas fa-book-open"></i>
+                            <span>Deep Learning</span>
+                        </div>
+                        <div class="skill-item learning">
+                            <i class="fas fa-book-open"></i>
+                            <span>Transfer Learning</span>
+                        </div>
+                        <div class="skill-item learning">
+                            <i class="fas fa-book-open"></i>
+                            <span>Computer Vision</span>
+                        </div>
+                        <div class="skill-item learning">
+                            <i class="fas fa-book-open"></i>
+                            <span>Natural Language Processing</span>
+                        </div>
+                        <div class="skill-item learning">
+                            <i class="fas fa-book-open"></i>
+                            <span>MLOps</span>
+                </div>
+                        <div class="skill-item learning">
+                            <i class="fas fa-book-open"></i>
+                            <span>Data Preprocessing</span>
+                    </div>
+                        <div class="skill-item learning">
+                            <i class="fas fa-book-open"></i>
+                            <span>Model Evaluation</span>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -196,15 +412,19 @@
     <!-- Projects Section -->
     <section id="projects" class="projects">
         <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="project-filters">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="ai">AI & ML</button>
-                <button class="filter-btn" data-filter="web">Web Dev</button>
-                <button class="filter-btn" data-filter="automation">Automation</button>
-            </div>
-            <div class="projects-grid">
-                <div class="project-card" data-category="web">
+            <h2 class="section-title animate-on-scroll">Featured Projects</h2>
+            <div class="projects-carousel-container animate-on-scroll">
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev" id="prevBtn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-btn next" id="nextBtn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="projects-carousel" id="projectsCarousel">
+                    <div class="carousel-track" id="carouselTrack">
+                <div class="project-card featured" data-category="web">
                     <div class="project-image">
                         <img src="fitexplorer-logo.png" alt="FitExplorer Logo" class="project-logo">
                     </div>
@@ -374,7 +594,7 @@
                             <a href="https://github.com/Chia213/snake-selfplay-gym" target="_blank" class="project-link"><i class="fab fa-github"></i> Code</a>
                         </div>
                     </div>
-                </div>
+            </div>
 
                 <div class="project-card" data-category="ai">
                     <div class="project-image">
@@ -432,6 +652,9 @@
                         </div>
                     </div>
                 </div>
+                    </div>
+                </div>
+                <div class="carousel-dots" id="carouselDots"></div>
             </div>
         </div>
     </section>
@@ -444,19 +667,73 @@
                 <div class="contact-info">
                     <h3>Let's Connect</h3>
                     <p>I'm always interested in hearing about new opportunities, exciting projects, and potential collaborations. Let's discuss how we can work together!</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <a href="mailto:chiaranchber@gmail.com">chiaranchber@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="contact-text">
+                                <h4>Location</h4>
+                                <p>Stockholm, Sweden</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div class="contact-text">
+                                <h4>Response Time</h4>
+                                <p>Within 24 hours</p>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div class="social-links">
                         <a href="https://github.com/Chia213" target="_blank" class="social-link" title="GitHub"><i class="fab fa-github"></i></a>
                         <a href="https://linkedin.com/in/chia-ranchber-36b491291" target="_blank" class="social-link" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
                         <a href="mailto:chiaranchber@gmail.com" class="social-link" title="Email"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
+                
                 <div class="contact-form">
-                    <div class="contact-cta">
-                        <h3>Ready to Connect?</h3>
-                        <p>I'd love to hear about your project or opportunity. Let's start a conversation!</p>
-                        <a href="mailto:chiaranchber@gmail.com?subject=Portfolio Contact&body=Hi Chia,%0D%0A%0D%0AI found your portfolio and would like to connect.%0D%0A%0D%0ABest regards," class="btn btn-primary">Send Email</a>
-                        <p class="contact-note">Click above to open your email client with a pre-filled message</p>
-                    </div>
+                    <form id="contactForm" class="contact-form-container">
+                        <h3>Send Me a Message</h3>
+                        <p>Fill out the form below and I'll get back to you as soon as possible.</p>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="Your message..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                        
+                        <p class="form-note">
+                            * Required fields. Your information will be sent directly to chiaranchber@gmail.com
+                        </p>
+                    </form>
                 </div>
             </div>
         </div>
