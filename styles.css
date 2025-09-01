@@ -197,6 +197,30 @@ body {
     color: var(--text-muted) !important;
 }
 
+[data-theme="light"] .contact-form input,
+[data-theme="light"] .contact-form textarea {
+    background-color: #ffffff !important;
+    color: #1e293b !important;
+    border: 2px solid #e2e8f0 !important;
+}
+
+[data-theme="light"] .contact-form input::placeholder,
+[data-theme="light"] .contact-form textarea::placeholder {
+    color: #64748b !important;
+}
+
+body[data-theme="light"] .contact-form input,
+body[data-theme="light"] .contact-form textarea {
+    background-color: #ffffff !important;
+    color: #1e293b !important;
+    border: 2px solid #e2e8f0 !important;
+}
+
+body[data-theme="light"] .contact-form input::placeholder,
+body[data-theme="light"] .contact-form textarea::placeholder {
+    color: #64748b !important;
+}
+
 [data-theme="dark"] .btn-primary {
     background: #3b82f6 !important;
     color: #ffffff !important;
