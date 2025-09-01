@@ -221,6 +221,33 @@ body[data-theme="light"] .contact-form textarea::placeholder {
     color: #64748b !important;
 }
 
+.contact-cta {
+    text-align: center;
+    padding: 2rem;
+    background: var(--bg-secondary);
+    border-radius: 15px;
+    border: 1px solid var(--border-light);
+}
+
+.contact-cta h3 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.contact-cta p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.contact-note {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-top: 1rem !important;
+    font-style: italic;
+}
+
 [data-theme="dark"] .btn-primary {
     background: #3b82f6 !important;
     color: #ffffff !important;
