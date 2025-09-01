@@ -250,6 +250,19 @@ body[data-theme="dark"] {
     color: var(--text-primary) !important;
 }
 
+[data-theme="dark"] .skill-category {
+    background: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .skill-category h3 {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .skills-description p {
+    color: var(--text-secondary) !important;
+}
+
 /* Light mode specific styles */
 [data-theme="light"] {
     color: var(--text-primary) !important;
@@ -936,6 +949,93 @@ body[data-theme="dark"] {
     color: var(--text-muted);
     font-weight: 600;
     font-size: 1.1rem;
+}
+
+/* Skills Section */
+.skills {
+    padding: 100px 0;
+    background: var(--bg-secondary);
+}
+
+.skills-description {
+    text-align: center;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.skills-description p {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.skill-category {
+    background: var(--bg-primary);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid var(--border-light);
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.skill-category h3 {
+    color: var(--text-primary);
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.skill-category .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    justify-content: center;
+}
+
+.skill-category .skill-tag {
+    background: var(--accent-primary);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.skill-category .skill-tag:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+    background: var(--accent-secondary);
+}
+
+/* All Skills Green */
+.skill-category .skill-tag {
+    background: #10b981 !important;
+    border-color: #059669 !important;
+    color: #ffffff !important;
+}
+
+.skill-tag i {
+    margin-left: 8px;
+    font-size: 0.8rem;
+    color: #ffffff !important;
 }
 
 /* Enhanced Projects Section */
