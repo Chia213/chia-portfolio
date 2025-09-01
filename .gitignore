@@ -1,18 +1,15 @@
-# Personal Files (but keep portfolio assets)
-*.doc
-*.docx
-
-# Ignore all images except portfolio assets
+# Profile Images
+bild.jpg
+profile-image.jpg
 *.jpg
 *.jpeg
 *.png
 *.gif
 
-# But include essential portfolio files
-!bild.jpg
-!fitexplorer-logo.png
-!exchango-screenshot.png
-!CV Chia.pdf
+# Personal Files
+*.pdf
+*.doc
+*.docx
 
 # OS Generated Files
 .DS_Store
