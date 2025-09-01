@@ -725,13 +725,19 @@
                             <textarea id="message" name="message" rows="5" required placeholder="Your message..."></textarea>
                         </div>
                         
-                        <button type="submit" class="btn btn-primary btn-full">
-                            <i class="fas fa-paper-plane"></i>
-                            Send Message
-                        </button>
+                        <div class="form-buttons">
+                            <button type="submit" class="btn btn-primary btn-send" data-method="default">
+                                <i class="fas fa-envelope"></i>
+                                Open Email Client
+                            </button>
+                            <button type="button" class="btn btn-secondary btn-send" data-method="gmail">
+                                <i class="fab fa-google"></i>
+                                Send via Gmail
+                            </button>
+                        </div>
                         
                         <p class="form-note">
-                            * Required fields. Your information will be sent directly to chiaranchber@gmail.com
+                            * Required fields. Choose your preferred email method to send to chiaranchber@gmail.com
                         </p>
                     </form>
                 </div>

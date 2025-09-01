@@ -136,32 +136,36 @@ filterButtons.forEach(button => {
 // Professional Contact Form submission handling
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form data
-        const firstName = document.getElementById('firstName').value.trim();
-        const lastName = document.getElementById('lastName').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const message = document.getElementById('message').value.trim();
-        
-        // Basic validation
-        if (!firstName || !lastName || !email || !message) {
-            showNotification('Please fill in all required fields', 'error');
-            return;
-        }
-        
-        // Email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            showNotification('Please enter a valid email address', 'error');
-            return;
-        }
-        
-        // Create email content
-        const fullName = `${firstName} ${lastName}`;
-        
-        const emailBody = `Hi Chia,
+    // Handle both button clicks
+    const sendButtons = contactForm.querySelectorAll('.btn-send');
+    
+    sendButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            // Basic validation
+            if (!firstName || !lastName || !email || !message) {
+                showNotification('Please fill in all required fields', 'error');
+                return;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showNotification('Please enter a valid email address', 'error');
+                return;
+            }
+            
+            // Create email content
+            const fullName = `${firstName} ${lastName}`;
+            const emailSubject = `Portfolio Contact from ${fullName}`;
+            const emailBody = `Hi Chia,
 
 My name is ${fullName} and I found your portfolio. I'd like to get in touch with you.
 
@@ -172,20 +176,27 @@ ${message}
 
 Best regards,
 ${fullName}`;
-        
-        // Create mailto link
-        const mailtoLink = `mailto:chiaranchber@gmail.com?subject=Portfolio Contact from ${fullName}&body=${encodeURIComponent(emailBody)}`;
-        
-        // Open email client
-        window.location.href = mailtoLink;
-        
-        // Show success message
-        showNotification('Opening your email client... Thank you for reaching out!', 'success');
-        
-        // Reset form after a short delay
-        setTimeout(() => {
-            this.reset();
-        }, 1000);
+            
+            // Get the method from button data attribute
+            const method = this.getAttribute('data-method');
+            
+            if (method === 'gmail') {
+                // Gmail web interface
+                const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=chiaranchber@gmail.com&su=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+                window.open(gmailUrl, '_blank');
+                showNotification('Opening Gmail... Thank you for reaching out!', 'success');
+            } else {
+                // Default email client (mailto)
+                const mailtoLink = `mailto:chiaranchber@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+                window.location.href = mailtoLink;
+                showNotification('Opening your email client... Thank you for reaching out!', 'success');
+            }
+            
+            // Reset form after a short delay
+            setTimeout(() => {
+                contactForm.reset();
+            }, 1000);
+        });
     });
 }
 
