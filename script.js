@@ -493,17 +493,8 @@ function initializeScrollAnimations() {
 
 // Parallax effects for hero section
 function initializeParallaxEffects() {
-    const hero = document.querySelector('.hero');
-    const heroContent = document.querySelector('.hero-content');
-    
-    if (!hero || !heroContent) return;
-    
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const parallaxSpeed = 0.5;
-        
-        heroContent.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
-    });
+    // Parallax effects disabled to keep hero content static
+    return;
 }
 
 // Animated counters for stats

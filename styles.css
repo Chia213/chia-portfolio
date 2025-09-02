@@ -1482,7 +1482,7 @@ body[data-theme="dark"] .preview-card {
 
 .workspace {
     position: relative;
-    animation: gentle-float 6s ease-in-out infinite;
+    /* Animation removed to keep workspace static */
 }
 
 @keyframes gentle-float {
