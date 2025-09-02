@@ -5,8 +5,8 @@ const path = require('path');
 const indexPath = path.join(__dirname, 'dist', 'index.html');
 let content = fs.readFileSync(indexPath, 'utf8');
 
-// Replace public/ paths with assets/ paths
-content = content.replace(/public\//g, 'assets/');
+// Replace public/ paths with root paths (for Vercel deployment)
+content = content.replace(/public\//g, '');
 
 // Write the updated content back
 fs.writeFileSync(indexPath, content);
