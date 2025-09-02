@@ -2941,6 +2941,46 @@ body[data-theme="dark"] .skill-item span {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #667eea 100%);
 }
 
+.project-card:nth-child(3) .project-image {
+    background: linear-gradient(135deg, #8b5cf6 0%, #6b46c1 50%, #a855f7 100%);
+}
+
+.project-card:nth-child(4) .project-image {
+    background: linear-gradient(135deg, #a855f7 0%, #8b5cf6 50%, #7c3aed 100%);
+}
+
+.project-card:nth-child(5) .project-image {
+    background: linear-gradient(135deg, #6b46c1 0%, #7c3aed 50%, #8b5cf6 100%);
+}
+
+.project-card:nth-child(6) .project-image {
+    background: linear-gradient(135deg, #7c3aed 0%, #6b46c1 50%, #a855f7 100%);
+}
+
+.project-card:nth-child(7) .project-image {
+    background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 50%, #6b46c1 100%);
+}
+
+.project-card:nth-child(8) .project-image {
+    background: linear-gradient(135deg, #a855f7 0%, #7c3aed 50%, #8b5cf6 100%);
+}
+
+.project-card:nth-child(9) .project-image {
+    background: linear-gradient(135deg, #6b46c1 0%, #8b5cf6 50%, #a855f7 100%);
+}
+
+.project-card:nth-child(10) .project-image {
+    background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #6b46c1 100%);
+}
+
+.project-card:nth-child(11) .project-image {
+    background: linear-gradient(135deg, #8b5cf6 0%, #6b46c1 50%, #7c3aed 100%);
+}
+
+.project-card:nth-child(12) .project-image {
+    background: linear-gradient(135deg, #a855f7 0%, #6b46c1 50%, #8b5cf6 100%);
+}
+
 .project-image::before {
     content: '';
     position: absolute;
@@ -2976,6 +3016,17 @@ body[data-theme="dark"] .skill-item span {
     object-fit: contain;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Special styling for portfolio screenshot */
+.project-card:nth-child(3) .project-logo {
+    max-width: 260px;
+    max-height: 260px;
+    border-radius: 12px;
+    box-shadow: 
+        0 10px 30px rgba(139, 92, 246, 0.3),
+        0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .project-card:hover .project-logo {
