@@ -1054,7 +1054,7 @@ html[data-theme="light"] {
 .hero-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 60px 20px 0;
     text-align: center;
     position: relative;
     z-index: 1;
@@ -1074,6 +1074,7 @@ html[data-theme="light"] {
     font-weight: 500;
     color: var(--text-secondary);
     box-shadow: var(--shadow-sm);
+    animation: float 3s ease-in-out infinite;
 }
 
 .status-indicator {
@@ -1081,12 +1082,22 @@ html[data-theme="light"] {
     height: 8px;
     background: #10b981;
     border-radius: 50%;
-    animation: pulse-indicator 2s ease-in-out infinite;
+    animation: pulse-indicator 2s ease-in-out infinite, glow 2s ease-in-out infinite alternate;
+    box-shadow: 0 0 10px #10b981, 0 0 20px #10b981, 0 0 30px #10b981;
 }
 
 @keyframes pulse-indicator {
     0%, 100% { opacity: 1; transform: scale(1); }
     50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px #10b981, 0 0 10px #10b981, 0 0 15px #10b981;
+    }
+    100% {
+        box-shadow: 0 0 10px #10b981, 0 0 20px #10b981, 0 0 30px #10b981;
+    }
 }
 
 /* Hero Stats */
@@ -1258,23 +1269,62 @@ body[data-theme="dark"] .preview-card {
 }
 
 .hero-title {
-    font-size: 3.5rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 0.2rem;
+    line-height: 1.3;
+    letter-spacing: 0.01em;
     color: var(--text-primary);
+    opacity: 0.8;
 }
 
 .hero-name {
-    font-size: 4.5rem;
-    font-weight: 800;
-    margin-bottom: 1.5rem;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    color: var(--text-primary);
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    font-size: 2.4rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 3s ease-in-out infinite alternate;
+}
+
+@keyframes gradientShift {
+    0% {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+    }
+    50% {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+    }
+    100% {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+    }
+}
+
+@keyframes typewriter {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    0%, 50% {
+        border-color: var(--accent-color);
+    }
+    51%, 100% {
+        border-color: transparent;
+    }
 }
 
 @keyframes slideInLeft {
@@ -1314,11 +1364,17 @@ body[data-theme="dark"] .preview-card {
 }
 
 .hero-subtitle {
-    font-size: 1.6rem;
-    font-weight: 600;
-    margin-bottom: 2rem;
-    opacity: 0.95;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 1.2rem;
+    opacity: 0.9;
+    color: var(--accent-color);
     animation: slideInLeft 1s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
+    position: relative;
+    overflow: hidden;
+    border-right: 2px solid var(--accent-color);
+    white-space: nowrap;
+    animation: typewriter 2s steps(40) 1s 1 normal both, blink 1s infinite;
 }
 
 .hero-description {
@@ -3319,7 +3375,11 @@ body[data-theme="dark"] .skill-item span {
     }
 
     .hero-title {
-        font-size: 3rem;
+        font-size: 1.3rem;
+    }
+    
+    .hero-name {
+        font-size: 2.2rem;
     }
     
     .hero-stats {
@@ -3429,7 +3489,15 @@ body[data-theme="dark"] .skill-item span {
 
 @media (max-width: 480px) {
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 1.2rem;
+    }
+    
+    .hero-name {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
     }
 
     .section-title {

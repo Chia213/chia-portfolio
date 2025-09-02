@@ -329,16 +329,20 @@ document.querySelectorAll('.skill-tag').forEach((tag, index) => {
 
 // Add counter animation for stats
 function animateCounter(element, target, duration = 2000) {
+    // Get the original text to preserve the suffix
+    const originalText = element.textContent;
+    const suffix = originalText.replace(/\d/g, '');
+    
     let start = 0;
     const increment = target / (duration / 16);
     
     function updateCounter() {
         start += increment;
         if (start < target) {
-            element.textContent = Math.floor(start) + '+';
+            element.textContent = Math.floor(start) + suffix;
             requestAnimationFrame(updateCounter);
         } else {
-            element.textContent = target + '+';
+            element.textContent = target + suffix;
         }
     }
     
@@ -352,8 +356,10 @@ const aboutObserver = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             const statNumbers = document.querySelectorAll('.stat-item h3');
             statNumbers.forEach(stat => {
-                const target = parseInt(stat.textContent);
-                animateCounter(stat, target);
+                const target = parseInt(stat.textContent.replace(/\D/g, ''));
+                if (!isNaN(target) && target > 0) {
+                    animateCounter(stat, target);
+                }
             });
             aboutObserver.unobserve(entry.target);
         }
@@ -505,8 +511,16 @@ function initializeAnimatedCounters() {
     const counters = document.querySelectorAll('.stat-item h3');
     
     const animateCounter = (counter) => {
-        const target = parseInt(counter.textContent.replace(/\D/g, ''));
-        const suffix = counter.textContent.replace(/\d/g, '');
+        const originalText = counter.textContent;
+        const target = parseInt(originalText.replace(/\D/g, ''));
+        const suffix = originalText.replace(/\d/g, '');
+        
+        // Ensure we have a valid target number
+        if (isNaN(target) || target <= 0) {
+            console.warn('Invalid target number for counter:', originalText);
+            return;
+        }
+        
         let current = 0;
         const increment = target / 50;
         const duration = 2000;
