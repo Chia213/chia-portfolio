@@ -4,7 +4,7 @@ Welcome to my portfolio website! This is where I showcase my work, skills, and p
 
 ## What I Do
 
-I'm a **Full-Stack Developer & Creative Technologist** who loves building things that make a difference. When I'm not coding, you'll find me exploring new technologies or contributing to open-source projects.
+I'm an **AI Developer & Full-Stack Engineer** specializing in Python. Currently completing my Machine Learning and Deep Learning course at Nackademin's AI Development program, I combine AI, Python development, and web technologies to build practical, intelligent tools that simplify complex problems.
 
 ## My Portfolio
 
@@ -23,22 +23,30 @@ This website showcases:
 
 ## Tech Stack
 
-I built this portfolio using:
+**This Portfolio Built With:**
 - HTML5 & CSS3
 - JavaScript (ES6+)
 - Modern CSS features (Grid, Flexbox, Variables)
 - Responsive design principles
 
+**My Development Skills:**
+- **AI & ML**: Python, PyTorch, OpenAI, Hugging Face
+- **Backend**: Django, Flask, FastAPI, SQLAlchemy
+- **Frontend**: JavaScript, React, HTML/CSS
+- **Database**: SQL, Database Design, CRUD Operations
+- **Tools**: Docker, Git, AWS, VS Code
+
 ## Let's Connect!
 
 I'm always interested in:
-- New opportunities
-- Exciting projects
-- Collaborations
-- Learning from others
+- AI/ML opportunities and projects
+- Full-stack development roles
+- Open-source collaborations
+- Learning cutting-edge technologies
+- Building intelligent solutions
 
 Feel free to reach out through the contact form or connect with me on social media!
 
 ---
 
-**Built with ❤️ by Chia**
+**Built by Chia Ranchber**
