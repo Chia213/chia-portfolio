@@ -255,7 +255,7 @@
     "watch": "webpack --mode development --watch",
     "serve": "python -m http.server 8000",
     "vercel-build": "npm run build && npm run copy-assets",
-    "copy-assets": "cp index.html dist/ && cp styles.css dist/ && cp script.js dist/ && cp -r public dist/ && npm run fix-paths",
+    "copy-assets": "cp index.html dist/ && cp styles.css dist/ && cp script.js dist/ && cp -r public/* dist/ && npm run fix-paths",
     "fix-paths": "node fix-paths.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
